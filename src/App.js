@@ -47,8 +47,8 @@ function App() {
   }
 
   async function onChange(e){
-    console.log(e.target.files);
-    if(!e.targe.files[0]) return
+    console.log(e.target.files[0]);
+    //if(!e.targe.files[0]) return
     const file = e.target.files[0];
     setFormData({ ...formData, image : file.name });
     await Storage.put(file.name, file);
@@ -70,8 +70,8 @@ function App() {
       />
       <input 
         type="file"
-        onChange={onChange}
-      />
+        onChange={ e => onChange(e)}
+      />1
       <button onClick={createNote}> Create Note </button>
       <div style={{ marginBottom : 30}}>
         {
